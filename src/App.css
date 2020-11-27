@@ -1,0 +1,21 @@
+.contenitore {
+    width: 100%;
+    text-align: center;
+}
+
+.contatore {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.meno {
+    background:red;
+    color: lightseagreen;
+    display: inline-block;
+}
+
+.più {
+    background: blue;
+    color: yellow;
+    display: inline-block;
+}
