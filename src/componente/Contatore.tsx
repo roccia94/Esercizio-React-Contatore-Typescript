@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useCallback} from "react";
 import {useState} from "react";
 import ShowCounterData from "./ShowCounterData";
 
@@ -8,13 +8,25 @@ interface IComponentProps{
 
 const Contatore : React.FC<IComponentProps> = ({valueStart}) => {   // Sintassi per inizializzare value start a number
     const [ counter, setCounter] = useState<number>(valueStart);
-    const increment = () => {
+
+    const increment = useCallback(() => {
         setCounter(counter + 1);
-    }
+    }, [counter, setCounter]);
 
     const decrease = () => {
         setCounter(counter - 1);
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            increment();
+        }, 5000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, [increment])
+
 
     return (
         <div className={'contenitore'}>
