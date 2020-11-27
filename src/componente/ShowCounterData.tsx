@@ -1,6 +1,10 @@
 import React from "react";
 
-const ShowCounterData = ( counterValue: any) => {
+interface IComponentProps{
+    counterValue: number;
+}
+
+const ShowCounterData : React.FC<IComponentProps>= ({counterValue}) => {
     const test = 100 - counterValue;
 
     return (
